@@ -1,9 +1,10 @@
 <?php
-// Include the database connection file
+// Include database connection file
 require_once 'dbconnect.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = $_POST['name'];
+    $surname = $_POST['surname'];
     $email = $_POST['email'];
     $password = password_hash($_POST['password'], PASSWORD_DEFAULT); // Hash the password
     $role = $_POST['role']; // Get the selected role
@@ -32,14 +33,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
               </script>";
     } else {
         // Email does not exist, proceed with sign-up
-        $insertQuery = "INSERT INTO users (name, email, password, role) VALUES (?, ?, ?, ?)";
+        $insertQuery = "INSERT INTO users (name, surname, email, password, role) VALUES (?, ?, ?, ?, ?)";
         $insertStmt = $conn->prepare($insertQuery);
 
         if (!$insertStmt) {
             die("Prepare failed: " . $conn->error);
         }
 
-        $insertStmt->bind_param("ssss", $name, $email, $password, $role);
+        // Correct the order of parameters in bind_param
+        $insertStmt->bind_param("sssss", $name, $surname, $email, $password, $role);
 
         if ($insertStmt->execute()) {
             // Redirect back to signup.php with the user's name

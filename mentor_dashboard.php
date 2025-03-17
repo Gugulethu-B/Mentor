@@ -7,6 +7,19 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] != 'mentor') {
     header("Location: login.php");
     exit();
 }
+
+// Include the database connection file
+require_once 'dbconnect.php';
+
+// Fetch mentor profile data
+$userId = $_SESSION['user_id'];
+$query = "SELECT * FROM mentor_profiles WHERE user_id = ?";
+$stmt = $conn->prepare($query);
+$stmt->bind_param("i", $userId);
+$stmt->execute();
+$result = $stmt->get_result();
+$profile = $result->fetch_assoc();
+$stmt->close();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,7 +27,9 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] != 'mentor') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mentor Dashboard</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="/Networking/styles.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -22,7 +37,36 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] != 'mentor') {
         <p>You are logged in as a Mentor / Investor.</p>
     </header>
     <main>
-        <a href="logout.php"><button>Log Out</button></a>
+        <?php if (!$profile) { ?>
+            <!-- Prompt to create a profile -->
+            <div class="alert alert-info">
+                <p>You haven't created a profile yet. <a href="Profiles/create_mentor_profile.php">Create your profile now</a>.</p>
+            </div>
+        <?php } else { ?>
+            <!-- Display profile information -->
+            <div class="profile-container">
+                <h2>Your Profile</h2>
+                <p><strong>Name:</strong> <?php echo $profile['name']; ?></p>
+                <p><strong>Surname:</strong> <?php echo $profile['surname']; ?></p>
+                <p><strong>Industry:</strong> <?php echo $profile['industry']; ?></p>
+                <p><strong>Location:</strong> <?php echo $profile['location']; ?></p>
+                <p><strong>Skills:</strong> <?php echo $profile['skills']; ?></p>
+                <p><strong>Interests:</strong> <?php echo $profile['interests']; ?></p>
+                <p><strong>LinkedIn:</strong> <a href="<?php echo $profile['linkedin_url']; ?>" target="_blank"><?php echo $profile['linkedin_url']; ?></a></p>
+                <p><strong>Bio:</strong> <?php echo $profile['bio']; ?></p>
+                <?php if ($profile['profile_picture']) { ?>
+    <p>Current Profile Picture:</p>
+    <img src="/Networking/<?php echo $profile['profile_picture']; ?>" alt="Profile Picture" width="150"><br><br>
+<?php } ?>
+                <br><br>
+                <a href="/Networking/Profiles/edit_mentor_profile.php" class="btn btn-primary">Edit Profile</a>
+            </div>
+        <?php } ?>
+        <br>
+        <a href="logout.php" class="btn btn-danger">Log Out</a>
     </main>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
