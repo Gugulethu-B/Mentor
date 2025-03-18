@@ -4,13 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Log In</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
-        <h1>Log In</h1>
+        
     </header>
     <main>
+    <h1>Log In</h1>
         <form action="login_process.php" method="POST">
             <label for="email">Email:</label>
             <input type="email" id="email" name="email" required><br><br>

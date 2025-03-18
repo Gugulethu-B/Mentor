@@ -1,4 +1,4 @@
-body {
+/*body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
@@ -20,3 +20,144 @@ button {
     margin: 10px;
 }
 
+/* General body styling 
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header styling 
+header {
+    background-color: #007bff;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+}
+
+/* Main content styling 
+main {
+    padding: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Form styling 
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="url"],
+textarea {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+input[type="file"] {
+    margin-bottom: 15px;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+*/    body {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url('uploads/coop.jpg') no-repeat center center fixed;
+background-size: cover;
+display: flex;
+flex-direction: column; /* Arrange elements vertically */
+align-items: center;
+height: 100vh;
+text-align: center;
+padding-top: 30px;
+}
+
+header {
+width: 80%;
+max-width: 800px;
+margin-bottom: 20px;
+}
+
+h1 {
+color: black; /* Color changed */
+margin-bottom: 10px;
+font-size: 28px;
+}
+
+p {
+color: black; /* Color changed */
+font-size: 16px;
+
+max-width: 600px;
+line-height: 1.5;
+text-align:left;
+padding-left:20px;
+}
+
+main {
+/*background: url('uploads/white.jpg') no-repeat center center;*/
+background-size: cover;
+border-radius: 15px;
+width: 100%;
+max-width: 400px;
+padding: 20px;
+box-shadow: 0 0 10px rgba(35, 31, 31, 0.1);
+opacity: 0.9;
+display: flex;
+flex-direction: column;
+align-items: center; /* Centering buttons */
+justify-content: center;
+}
+
+main a {
+width: 100%;
+text-decoration: none;
+margin-bottom: 10px;
+}
+
+main button {
+width: 100%;
+padding: 12px;
+border: none;
+border-radius: 15px;
+cursor: pointer;
+font-size: 16px;
+}
+
+main button:first-child {
+background-color: rgb(27, 47, 68);
+color: #fff;
+}
+
+main button:first-child:hover {
+background-color: rgb(48, 119, 160);
+}
+
+main button:last-child {
+background-color: cadetblue;
+color: #fff;
+}
+
+main button:last-child:hover {
+background-color: rgb(36, 98, 126);
+}

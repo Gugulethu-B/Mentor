@@ -7,39 +7,50 @@ $userName = isset($_GET['userName']) ? htmlspecialchars($_GET['userName']) : '';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="styles.css">
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    <header>
+    <header class="text-center my-4">
         <h1>Sign Up</h1>
     </header>
-    <main>
-        <form action="signup_process.php" method="POST">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required><br><br>
+    <main class="container">
+        <form action="signup_process.php" method="POST" class="mx-auto" style="max-width: 400px;">
+            <div class="mb-3">
+                <label for="name" class="form-label">Name:</label>
+                <input type="text" id="name" name="name" class="form-control" required>
+            </div>
 
-            <label for="name">Surname:</label>
-            <input type="text" id="surname" name="surname" required><br><br>
+            <div class="mb-3">
+                <label for="surname" class="form-label">Surname:</label>
+                <input type="text" id="surname" name="surname" class="form-control" required>
+            </div>
 
+            <div class="mb-3">
+                <label for="email" class="form-label">Email:</label>
+                <input type="email" id="email" name="email" class="form-control" required>
+            </div>
 
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required><br><br>
+            <div class="mb-3">
+                <label for="password" class="form-label">Password:</label>
+                <input type="password" id="password" name="password" class="form-control" required>
+            </div>
 
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required><br><br>
-
-            <label for="role">I am a:</label>
-            <select id="role" name="role" required>
-                <option value="founder">Startup Founder / Small Business Owner</option>
-                <option value="mentor">Mentor / Investor</option>
-            </select><br><br>
+            <div class="mb-3">
+                <label for="role" class="form-label">I am a:</label>
+                <select id="role" name="role" class="form-select" required>
+                    <option value="founder">Startup Founder / Small Business Owner</option>
+                    <option value="mentor">Mentor / Investor</option>
+                </select>
+            </div>
 
             <!-- Hidden field to store the user's name -->
             <input type="hidden" id="userName" name="userName" value="<?php echo $userName; ?>">
 
-            <button type="submit">Sign Up</button>
+            <div class="d-grid">
+                <button type="submit" class="btn btn-primary">Sign Up</button>
+            </div>
         </form>
     </main>
 
