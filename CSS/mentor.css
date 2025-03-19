@@ -1,27 +1,56 @@
 /* General Styles */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f8f9fa;
     margin: 0;
     padding: 0;
+    background-image:  url('/Networking/uploads/coop.jpg'); /* Path to your background image */
+    background-size: cover; /* Cover the entire page */
+    background-position: center; /* Center the background image */
+    background-repeat: no-repeat; /* Prevent the image from repeating */
+    background-attachment: fixed; /* Fix the background while scrolling */
 }
 
+/* Header Styles */
 header {
-    background-color:grey;
+    background-color: lightblue;
     color: white;
     padding: 20px;
     text-align: center;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center; /* Center items vertically */
+    justify-content: center; /* Center text horizontally */
+    position: relative; /* For absolute positioning of the logo */
 }
 
+/* Logo Container */
+.logo-container {
+    position: absolute; /* Position the logo absolutely */
+    left: 20px; /* Distance from the left edge */
+    top: 50%; /* Center vertically */
+    transform: translateY(-50%); /* Adjust for exact vertical centering */
+}
+
+/* Logo Styles */
+.logo {
+    width: 100px; /* Adjust logo size */
+    height: auto; /* Maintain aspect ratio */
+}
+
+/* Header Text */
+.header-text {
+    text-align: center; /* Center the text */
+}
 header h1 {
     margin: 0;
     font-size: 2rem;
+    
 }
 
 header p {
     margin: 5px 0 0;
     font-size: 1rem;
+
 }
 
 main {
@@ -33,16 +62,86 @@ main {
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-.alert {
-    padding: 15px;
-    border-radius: 5px;
-    margin-bottom: 20px;
+/* Profile Icon */
+.profile-icon {
+    font-size: 40px; /* Size of the icon */
+    color: rgb(0, 128, 68); /* Icon color */
+    margin-bottom: 20px; /* Space below the icon */
+
 }
 
-.alert-info {
-    background-color: #e9f5ff;
-    border: 1px solid #b8daff;
-    color: #004085;
+/* Button Styles */
+.btn {
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 10px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-align: center;
+    border: 1px solid transparent; /* Add border for better contrast */
+}
+
+.btn-primary {
+    background-color: darkgrey; /* Dark grey */
+    color: white;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: grey; /* Grey on hover */
+    transform: translateY(-2px); /* Slight lift effect on hover */
+}
+
+.btn-danger {
+    background-color: darkgrey; /* Dark grey */
+    color: white;
+    border: none;
+}
+
+.btn-danger:hover {
+    background-color: grey; /* Grey on hover */
+    transform: translateY(-2px); /* Slight lift effect on hover */
+}
+
+#profile-info-button {
+    background-color: transparent; /* Dark grey */
+    color: white;
+    border: none;
+}
+
+#profile-info-button:hover {
+    background-color: grey; /* Grey on hover */
+    transform: translateY(-2px); /* Slight lift effect on hover */
+}
+
+/* Button Container */
+.button-container {
+    display: flex;
+    gap: 10px; /* Space between buttons */
+    margin-top: 20px;
+}
+
+/* Profile Layout */
+.profile-layout {
+    display: flex;
+    gap: 20px; /* Space between sidebar and profile info */
+}
+
+/* Left Side: Profile Icon and Button */
+/* Profile Sidebar */
+.profile-sidebar {
+    width: 200px; /* Fixed width for sidebar */
+    text-align: center;
+    margin-top: 20px; /* Move down from the header */
+    margin-left: 20px; /* Move away from the left margin */
+}
+/* Right Side: Profile Information */
+.profile-info-container {
+    flex: 1; /* Take remaining space */
+    display: none; /* Hidden by default */
 }
 
 .profile-container {
@@ -60,124 +159,125 @@ main {
     margin: 10px 0;
     color: #555;
 }
-
-.profile-container a {
-    color: grey;
-    text-decoration: none;
-}
-
-.profile-container a:hover {
-    text-decoration: underline;
-}
-
-.btn {
-    padding: 10px 20px;
-    border-radius: 5px;
-    font-size: 1rem;
-    cursor: pointer;
-    text-decoration: none;
-    display: inline-block;
-    margin-top: 10px;
-}
-
-.btn-primary {
-    background-color:darkgrey;
-    color: white;
-    border: none;
-}
-
-.btn-primary:hover {
-    background-color:grey ;
-}
-
-.btn-danger {
-    background-color: darkgrey;
-    color: white;
-    border: none;
-}
-
-.btn-danger:hover {
-    background-color: grey;
-}
-
-/* Profile Picture Frame */
-.profile-picture-frame {
-    width: 150px;
-    height: 150px;
-    border: 5px solid black;
-    border-radius: 50%;
-    overflow: hidden;
-    margin: 20px auto;
-    position: relative;
-    background-color: #f1f1f1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-}
-
-.profile-picture-frame img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.profile-picture-frame input[type="file"] {
-    display: none;
-}
-
-.profile-picture-frame label {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    background-color: rgba(90, 92, 94, 0.8);
-    color: white;
-    text-align: center;
-    padding: 5px;
-    font-size: 0.9rem;
-    cursor: pointer;
-}
-
-.profile-picture-frame label:hover {
-    background-color: rgba(170, 175, 180, 0.8);
-}
-/* Button Styles */
-.btn {
-    padding: 10px 20px;
-    border-radius: 5px;
-    font-size: 1rem;
-    cursor: pointer;
-    text-decoration: none;
-    display: inline-block;
-    margin-top: 10px;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    text-align: center;
-    border: 1px solid transparent; /* Add border for better contrast */
-}
-
-.btn-primary {
-    background-color: #6c757d; /* Grey color */
-    color: white;
-}
-
-.btn-primary:hover {
-    background-color: #5a6268; /* Darker grey on hover */
-    transform: translateY(-2px); /* Slight lift effect on hover */
-}
-
-.btn-danger {
-    background-color: #6c757d; /* Grey color */
-    color: white;
-}
-
-.btn-danger:hover {
-    background-color: #5a6268; /* Darker grey on hover */
-    transform: translateY(-2px); /* Slight lift effect on hover */
+/* Profile Info Container */
+.profile-info-container {
+    flex: 1; /* Take remaining space */
+    display: none; /* Hidden by default */
 }
 
 /* Button Container */
 .button-container {
-    display: flex;
+    display: none; /* Hidden by default */
     gap: 10px; /* Space between buttons */
     margin-top: 20px;
+}
+
+/* Show buttons when toggled */
+.profile-info-container.active .button-container {
+    display: flex; /* Show buttons */
+}
+/* Icon and Button Container */
+.icon-button-container {
+    display: flex; /* Align icon and button side by side */
+    align-items: center; /* Vertically center items */
+    gap: 10px; /* Space between icon and button */
+    margin-bottom: 20px; /* Space below the container */
+}
+
+/* Profile Icon */
+.profile-icon {
+    font-size: 30px; /* Adjust icon size */
+    color: pink; /* Icon color */
+}
+
+/* My Profile Info Button */
+#profile-info-button {
+    flex: 1; /* Allow the button to take remaining space */
+}
+/* Icon and Link Container */
+.icon-link-container {
+    display: flex; /* Align icon and link side by side */
+    align-items: center; /* Vertically center items */
+    gap: 10px; /* Space between icon and link */
+    margin-bottom: 20px; /* Space below the container */
+}
+
+/* Profile Icon */
+.profile-icon {
+    font-size: 50px; /* Adjust icon size */
+    color: darkgrey; /* Icon color */
+}
+
+/* Profile Link */
+.profile-link {
+    color: #007BFF; /* Blue color for the link */
+    text-decoration: none; /* Remove underline */
+    font-size: 1rem; /* Adjust font size */
+    cursor: pointer; /* Show pointer cursor on hover */
+}
+
+.profile-link:hover {
+    text-decoration: underline; /* Add underline on hover */
+    color: #0056b3; /* Darker blue on hover */
+}
+/* Profile Icon */
+.profile-icon {
+    width: 40px; /* Fixed width */
+    height: 40px; /* Fixed height */
+    background-color: #007BFF; /* Blue background */
+    color: white; /* White text */
+    border-radius: 50%; /* Circular shape */
+    display: flex;
+    align-items: center; /* Center text vertically */
+    justify-content: center; /* Center text horizontally */
+    font-size: 24px; /* Font size for the letter */
+    font-weight: bold; /* Bold text */
+    text-transform: uppercase; /* Ensure the letter is uppercase */
+}
+
+/* Matches Container */
+.matches-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Match Card */
+.match-card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 300px;
+}
+
+.match-card h2 {
+    margin: 0 0 10px;
+    font-size: 1.5rem;
+}
+
+.match-card p {
+    margin: 5px 0;
+    color: #555;
+}
+
+.match-card .btn {
+    margin-top: 10px;
+}
+.no-profile-container {
+    text-align: center;
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.no-profile-container h2 {
+    margin-bottom: 10px;
+}
+
+.no-profile-container p {
+    margin-bottom: 20px;
 }

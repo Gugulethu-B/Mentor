@@ -26,7 +26,122 @@ $profileData = $hasProfile ? mysqli_fetch_assoc($result) : null;
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Founder Dashboard</title>
-    <link rel="stylesheet" href="styles.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+
+        header {
+            background-color:lightblue;);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.2rem;
+        }
+
+        .profile-prompt, .profile-section {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 800px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .profile-prompt p {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+
+        .profile-prompt button, .profile-section button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .profile-prompt button:hover, .profile-section button:hover {
+            background-color: #0056b3;
+        }
+
+        .profile-section h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #007BFF;
+        }
+
+        .profile-details p {
+            font-size: 1rem;
+            margin-bottom: 10px;
+        }
+
+        .profile-details strong {
+            color: #007BFF;
+        }
+
+        .profile-details a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+
+        .profile-details a:hover {
+            text-decoration: underline;
+        }
+
+        .btn-primary {
+            display: block;
+            width: fit-content;
+            margin: 20px auto;
+            background-color: #007BFF;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            color: white;
+            text-decoration: none;
+            text-align: center;
+            transition: background-color 0.3s;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+
+        .logout-section {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .logout-section button {
+            background-color: #dc3545;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .logout-section button:hover {
+            background-color: #c82333;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -58,7 +173,7 @@ $profileData = $hasProfile ? mysqli_fetch_assoc($result) : null;
                 <a href="Profiles/edit_founder_profile.php"><button>Edit Profile</button></a>
             </div>
         <?php endif; ?>
-
+        <a href="/Networking/match_users.php" class="btn btn-primary">Find Matches</a>
         <!-- Logout button -->
         <div class="logout-section">
             <a href="logout.php"><button>Log Out</button></a>

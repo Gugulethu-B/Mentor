@@ -10,35 +10,42 @@ $userName = isset($_GET['userName']) ? htmlspecialchars($_GET['userName']) : '';
     <link rel="stylesheet" href="styles.css">
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Custom CSS for label colors */
+        .label-color {
+            color: black; /* Change this to your desired color */
+        }
+    </style>
 </head>
 <body>
     <header class="text-center my-4">
-        <h1>Sign Up</h1>
+        
     </header>
     <main class="container">
+    <h1>Sign Up</h1>
         <form action="signup_process.php" method="POST" class="mx-auto" style="max-width: 400px;">
             <div class="mb-3">
-                <label for="name" class="form-label">Name:</label>
+                <label for="name" class="form-label label-color">Name:</label>
                 <input type="text" id="name" name="name" class="form-control" required>
             </div>
 
             <div class="mb-3">
-                <label for="surname" class="form-label">Surname:</label>
+                <label for="surname" class="form-label label-color">Surname:</label>
                 <input type="text" id="surname" name="surname" class="form-control" required>
             </div>
 
             <div class="mb-3">
-                <label for="email" class="form-label">Email:</label>
+                <label for="email" class="form-label label-color">Email:</label>
                 <input type="email" id="email" name="email" class="form-control" required>
             </div>
 
             <div class="mb-3">
-                <label for="password" class="form-label">Password:</label>
+                <label for="password" class="form-label label-color">Password:</label>
                 <input type="password" id="password" name="password" class="form-control" required>
             </div>
 
             <div class="mb-3">
-                <label for="role" class="form-label">I am a:</label>
+                <label for="role" class="form-label label-color">I am a:</label>
                 <select id="role" name="role" class="form-select" required>
                     <option value="founder">Startup Founder / Small Business Owner</option>
                     <option value="mentor">Mentor / Investor</option>
